@@ -46,7 +46,7 @@ think the code will do and what the computer really do.
         - Prototypes
         - OO vs OLOO
 ````
-# Types
+# Primitive Types
 ````
      - Primitive types: "In Javascript, everything is an object" -> This sentence is FALSE!
      - Haha for example, "false" isn't an object rsrs
@@ -59,4 +59,43 @@ think the code will do and what the computer really do.
         - function (Spec refers as a subtype of Object type, too named as callable Object)
         - Arrays (Have especific behaviors but like a function, not is a type, is a subtype of Object)
         - Bigint (Or Large integer, is a new feature in three stage but isn't in spec yet[Mar, 2021])
+    - But what types is really objects?
+        - Objects:
+            - Object
+            - function
+            - array
+        - Not Obejects:
+            - undefined
+            - string
+            - number
+            - boolean
+            - symbol
+            - null
+            - bigint
+    - In Javascript, variables don't have types. It is the values themselves that have types.
+````
+# Typeof Operator
+````
+    - If an variable is declared without initiated yet, they have a undefined value. The correct thought about the undefined type is, undefined is a value that not was been initiated ou attributed yet
+    - The typeof operator is guaranteed the aways only return string.
+    - If I make this, I will have these returns;
+        var x = null;
+        typeof x; // "object"
+        x = function();
+        typeof x; // "function"
+        x = [1,2,3];
+        typeof x; // "object"
+        
+````
+# undefined vs undeclared vs unitialized (aka TDZ)
+````
+    - typeof operator not catch the undeclared type, because the type of can be referenced to a variable that not be declared yet and not throw an error, will considerate value as undefined;
+````
+
+
+# Nan & isNaN
+````
+    - NaN is a especial value created to indicated invalid number, resulted of 
+    - An test to guarantee that number is valid is:
+        Number.isNaN(x) // true or false
 ````
