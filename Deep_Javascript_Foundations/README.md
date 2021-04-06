@@ -99,3 +99,17 @@ think the code will do and what the computer really do.
     - An test to guarantee that number is valid is:
         Number.isNaN(x) // true or false
 ````
+
+# Negative 0
+````
+    - Negative 0 doesn't exist in real world, but exist in programming and if I make:
+        var v = -0;
+        v === 0; // result is true
+        but
+        v === -0; // result is true
+    - The best way to check if is an negative 0 is use Object.is like:
+        var v = -0;
+        Object.is(v, 0); // result false
+        Object.is(v, -0); // result true
+````
+
