@@ -113,3 +113,26 @@ think the code will do and what the computer really do.
         Object.is(v, -0); // result true
 ````
 
+# Typecheck exercice
+````
+    - **Object.is(param1, param2)** -> return true if the two values are the exactly the same value or false otherwise.
+
+    - For NaN, use Number.isNaN(param) -> return true if number is NaN and false otherwise
+    - For testing -0, not exists aproprieted typecheck, but there is a hint: -infinity or use Object.is(p1, p2);
+    - If parameters are any other values, just test them for strict equality
+
+````
+
+# Polifyl pattern
+```
+    - We can use freely Object.is because some browsers not support ES6 modules.
+    - To use, we need to define them, like this:
+        if (!Object.is || true) {
+            Object.is = function ObjectIs (p1, p2) { ... }
+        }
+    
+
+```
+
+
+
