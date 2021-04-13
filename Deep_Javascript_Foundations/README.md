@@ -7,7 +7,7 @@ think the code will do and what the computer really do.
 # This is my notations
 
 # Intro Example: What gonna really do the ++ operator
-````
+````javascript
     - this:
         let x = "5";
         ++x;
@@ -75,7 +75,7 @@ think the code will do and what the computer really do.
     - In Javascript, variables don't have types. It is the values themselves that have types.
 ````
 # Typeof Operator
-````
+````javascript
     - If an variable is declared without initiated yet, they have a undefined value. The correct thought about the undefined type is, undefined is a value that not was been initiated ou attributed yet
     - The typeof operator is guaranteed the aways only return string.
     - If I make this, I will have these returns;
@@ -88,20 +88,20 @@ think the code will do and what the computer really do.
         
 ````
 # undefined vs undeclared vs unitialized (aka TDZ)
-````
+````javascript
     - typeof operator not catch the undeclared type, because the type of can be referenced to a variable that not be declared yet and not throw an error, will considerate value as undefined;
 ````
 
 
 # Nan & isNaN
-````
+````javascript
     - NaN is a especial value created to indicated invalid number, resulted of 
     - An test to guarantee that number is valid is:
         Number.isNaN(x) // true or false
 ````
 
 # Negative 0
-````
+````javascript
     - Negative 0 doesn't exist in real world, but exist in programming and if I make:
         var v = -0;
         v === 0; // result is true
@@ -114,7 +114,7 @@ think the code will do and what the computer really do.
 ````
 
 # Typecheck exercice
-````
+````javascript
     - **Object.is(param1, param2)** -> return true if the two values are the exactly the same value or false otherwise.
 
     - For NaN, use Number.isNaN(param) -> return true if number is NaN and false otherwise
@@ -124,7 +124,7 @@ think the code will do and what the computer really do.
 ````
 
 # Polifyl pattern
-```
+```javascript
     - We can use freely Object.is because some browsers not support ES6 modules.
     - To use, we need to define them, like this:
         if (!Object.is || true) {
@@ -134,5 +134,30 @@ think the code will do and what the computer really do.
 
 ```
 
+# How Object.is really works and or I can implement the really true typecheck/comparator verification
+```javascript
+        if (!Object.is || true) {
+            Object.is = function ObjectIs (x, y) {
+                var xNegZero = isItNegZero(x);
+                var yNegZero = isItNegZero(y);
 
+                if (xNegZero || yNegZero) {
+                    return xNegZero === yNegZero;
+                } else if (isItNan(x) && isItNaN(y)) {
+                    return true;
+                } else {
+                    return x === y;
+                }
+
+                function isItNegZero(v) {
+                    return v === 0 && (1/v) == -infinity;
+                }
+
+                function isItNaN(v) {
+                    return v !== v; //because NaN is aways diferent
+                }
+            }
+        }
+
+```
 
