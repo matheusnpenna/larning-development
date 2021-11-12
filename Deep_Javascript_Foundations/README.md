@@ -4,9 +4,9 @@
 The most reason of bug appear in projects is the difference between the developer 
 think the code will do and what the computer really do. 
 ````
-# This is my notations
+## This is my notations
 
-# Intro Example: What gonna really do the ++ operator
+## Intro Example: What gonna really do the ++ operator
 ````javascript
     - this:
         let x = "5";
@@ -27,7 +27,7 @@ think the code will do and what the computer really do.
         }
         afterPlusPlus();
 ````
-# Javascript is based inside 3 cores, or 3 pilares
+## Javascript is based inside 3 cores, or 3 pilares
 ````
     - Types
         - Primitive types
@@ -46,7 +46,7 @@ think the code will do and what the computer really do.
         - Prototypes
         - OO vs OLOO
 ````
-# Primitive Types
+## Primitive Types
 ````
      - Primitive types: "In Javascript, everything is an object" -> This sentence is FALSE!
      - Haha for example, "false" isn't an object rsrs
@@ -74,7 +74,7 @@ think the code will do and what the computer really do.
             - bigint
     - In Javascript, variables don't have types. It is the values themselves that have types.
 ````
-# Typeof Operator
+## Typeof Operator
 ````javascript
     - If an variable is declared without initiated yet, they have a undefined value. The correct thought about the undefined type is, undefined is a value that not was been initiated ou attributed yet
     - The typeof operator is guaranteed the aways only return string.
@@ -87,20 +87,20 @@ think the code will do and what the computer really do.
         typeof x; // "object"
         
 ````
-# undefined vs undeclared vs unitialized (aka TDZ)
+## undefined vs undeclared vs unitialized (aka TDZ)
 ````javascript
     - typeof operator not catch the undeclared type, because the type of can be referenced to a variable that not be declared yet and not throw an error, will considerate value as undefined;
 ````
 
 
-# Nan & isNaN
+## Nan & isNaN
 ````javascript
     - NaN is a especial value created to indicated invalid number, resulted of 
     - An test to guarantee that number is valid is:
         Number.isNaN(x) // true or false
 ````
 
-# Negative 0
+## Negative 0
 ````javascript
     - Negative 0 doesn't exist in real world, but exist in programming and if I make:
         var v = -0;
@@ -113,7 +113,7 @@ think the code will do and what the computer really do.
         Object.is(v, -0); // result true
 ````
 
-# Typecheck exercice
+## Typecheck exercice
 ````javascript
     - **Object.is(param1, param2)** -> return true if the two values are the exactly the same value or false otherwise.
 
@@ -123,7 +123,7 @@ think the code will do and what the computer really do.
 
 ````
 
-# Polifyl pattern
+## Polifyl pattern
 ```javascript
     - We can use freely Object.is because some browsers not support ES6 modules.
     - To use, we need to define them, like this:
@@ -134,7 +134,7 @@ think the code will do and what the computer really do.
 
 ```
 
-# How Object.is really works and or I can implement the really true typecheck/comparator verification
+## How Object.is really works and or I can implement the really true typecheck/comparator verification
 ```javascript
         if (!Object.is || true) {
             Object.is = function ObjectIs (x, y) {
@@ -161,3 +161,23 @@ think the code will do and what the computer really do.
 
 ```
 
+## Coercion
+Type Coercion refers to the process of automatic or implicit conversion of values from one data type to another data type like automatic conversions from Number to String, String to Number, Boolean to Number and etc... For example if you test the following code, the Number 0 is handled like a Boolean type false.
+```javascript
+    const x = 0;
+    if (x) {
+        console.log('0 is true');
+    } else {
+        console.log('0 is false');
+    }
+```
+
+## Difference between == and === (double and tripple Equals)
+ == checks value (loose)
+ === checks value and type (strict)
+ ```javascript
+    const x = "10";
+    const y = 10;
+    console.log(x == y) // return true;
+    console.log(x === y) // return false;
+ ```
